@@ -1,7 +1,11 @@
 # ISO2-25-GA1.1-Testing-1
 
-# Problem definition
+## Group in charge 
+- **implementation:** alicia & alvaro 
+- **test cases:** lucía & irem 
+- **junit:** hiba & kobry
 
+## Problem definition
 The task consists of writing and testing a method that, given an object of type date, returns
 whether it belongs to a leap year. If negative numbers or letters are passed, an exception
 indicating this situation must be thrown. Consider the possibility of performing these checks at
