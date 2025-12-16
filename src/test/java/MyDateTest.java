@@ -6,20 +6,16 @@ import org.junit.Test;
 
 public class MyDateTest {
 
-    @Test
-    public void eachUse_case1_2024_02_29_leap() throws InvalidDateException {
-        MyDate d = new MyDate(29, 2, 2024);
-        assertTrue(d.isLeapYear());
-    }
-
-    @Test
-    public void eachUse_case2_0001_05_15_notLeap() throws InvalidDateException {
+	
+	// each use tests
+	@Test
+    public void eachUse_case1_0001_05_15_notLeap() throws InvalidDateException {
         MyDate d = new MyDate(15, 5, 1);
         assertFalse(d.isLeapYear());
     }
 
     @Test
-    public void eachUse_case3_0000_00_00_invalid() {
+    public void eachUse_case2_0000_00_00_invalid() {
         try {
             new MyDate(0, 0, 0);
             fail("Expected InvalidDateException");
@@ -28,25 +24,25 @@ public class MyDateTest {
     }
 
     @Test
-    public void eachUse_case4_0001_01_01_notLeap() throws InvalidDateException {
+    public void eachUse_case3_0001_01_01_notLeap() throws InvalidDateException {
         MyDate d = new MyDate(1, 1, 1);
         assertFalse(d.isLeapYear());
     }
 
     @Test
-    public void eachUse_case5_0001_11_27_notLeap() throws InvalidDateException {
+    public void eachUse_case4_0001_11_27_notLeap() throws InvalidDateException {
         MyDate d = new MyDate(27, 11, 1);
         assertFalse(d.isLeapYear());
     }
 
     @Test
-    public void eachUse_case6_2024_02_28_leapYear() throws InvalidDateException {
+    public void eachUse_case5_2024_02_28_leapYear() throws InvalidDateException {
         MyDate d = new MyDate(28, 2, 2024);
         assertTrue(d.isLeapYear());
     }
 
     @Test
-    public void eachUse_case7_0001_13_30_invalid() {
+    public void eachUse_case6_0001_13_30_invalid() {
         try {
             new MyDate(30, 13, 1);
             fail("Expected InvalidDateException");
@@ -55,7 +51,7 @@ public class MyDateTest {
     }
 
     @Test
-    public void eachUse_case8_2024_14_31_invalid() {
+    public void eachUse_case7_2024_14_31_invalid() {
         try {
             new MyDate(31, 14, 2024);
             fail("Expected InvalidDateException");
@@ -63,21 +59,8 @@ public class MyDateTest {
         }
     }
 
-    @Test
-    public void eachUse_case9_0001_05_33_invalid() {
-        try {
-            new MyDate(33, 5, 1);
-            fail("Expected InvalidDateException");
-        } catch (InvalidDateException e) {
-        }
-    }
-
-    @Test
-    public void eachUse_case10_2024_05_02_leapYear() throws InvalidDateException {
-        MyDate d = new MyDate(2, 5, 2024);
-        assertTrue(d.isLeapYear());
-    }
-
+    
+    // pairwise tests
     @Test
     public void pairwise_case1_2024_02_29_leap() throws InvalidDateException {
         MyDate d = new MyDate(29, 2, 2024);
@@ -153,6 +136,8 @@ public class MyDateTest {
         assertTrue(d.isLeapYear());
     }
 
+    // Decision coverage tests 
+
     @Test
     public void decision_case1_2004_02_29_leap() throws InvalidDateException {
         MyDate d = new MyDate(29, 2, 2004);
@@ -200,6 +185,8 @@ public class MyDateTest {
         MyDate d = new MyDate(26, 6, 1700);
         assertFalse(d.isLeapYear());
     }
+
+    // MC/DC tests
 
     @Test
     public void mcdc_case1_2000_divisibleBy400_true() throws InvalidDateException {
